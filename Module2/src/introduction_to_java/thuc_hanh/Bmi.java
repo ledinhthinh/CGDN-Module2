@@ -2,7 +2,7 @@ package introduction_to_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class bmi {
+public class Bmi {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter weight: ");

@@ -2,7 +2,7 @@ package introduction_to_java.thuc_hanh;
 
 import java.util.Scanner;
 
-public class nam_nhuan {
+public class NamNhuan {
     public static void main(String[] args) {
         System.out.println("Enter year: ");
         Scanner scanner = new Scanner(System.in);
