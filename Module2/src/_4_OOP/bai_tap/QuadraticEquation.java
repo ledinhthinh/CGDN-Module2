@@ -38,7 +38,7 @@ public class QuadraticEquation {
         public String less() {
             return ("The equation has no roots");
         }
-    }
+}
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
