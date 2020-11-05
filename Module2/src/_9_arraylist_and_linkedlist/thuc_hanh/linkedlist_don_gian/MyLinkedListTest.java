@@ -7,8 +7,8 @@ public class MyLinkedListTest {
         myLinkedList.addFirst(11);
         myLinkedList.addFirst(12);
         myLinkedList.addFirst(13);
-        myLinkedList.add(4,9);
-        myLinkedList.add(4,9);
+       // myLinkedList.add(4,9);
+       // myLinkedList.add(4,9);
         myLinkedList.printList();
     }
 }

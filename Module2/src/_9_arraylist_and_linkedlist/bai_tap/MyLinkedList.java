@@ -1,7 +1,5 @@
 package _9_arraylist_and_linkedlist.bai_tap;
 
-import org.junit.platform.engine.support.hierarchical.Node;
-
 public class MyLinkedList {
     private Node head;
     private int numNodes;
@@ -24,14 +22,56 @@ public class MyLinkedList {
     }
 
     public void add(int index, Object data) {
-        _9_arraylist_and_linkedlist.thuc_hanh.linkedlist_don_gian.MyLinkedList.Node temp = head;
-        _9_arraylist_and_linkedlist.thuc_hanh.linkedlist_don_gian.MyLinkedList.Node holder;
+        Node temp = head;
+        Node holder;
         for (int i = 0; i < index - 1 && temp.next != null; i++) {
             temp = temp.next;
         }
         holder = temp.next;
-        temp.next = new _9_arraylist_and_linkedlist.thuc_hanh.linkedlist_don_gian.MyLinkedList.Node(data);
+        temp.next = new Node(data);
         temp.next.next = holder;
         numNodes++;
     }
+
+    public void addFirst(Object data) {
+        Node temp = head;
+        head = new Node(data);
+        head.next = temp;
+        numNodes++;
+    }
+
+    public void addLast(Object data) {
+        Node node = new Node(data);
+        Node temp = head;
+        for (int i = 0; i < numNodes - 1; i++) {
+            temp = temp.next;
+        }
+        temp.next = node;
+        this.numNodes++;
+    }
+
+    public void getFirst() {
+        Node temp = head;
+        System.out.println(temp.getData());
+    }
+
+    public void getLast() {
+        Node temp = head;
+        for (int i = 0; i < numNodes; i++) {
+            temp = temp.next;
+        }
+        if (temp.next == null) {
+            System.out.println(temp.getData());
+        }
+        this.numNodes++;
+    }
+
+    public void printList() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
 }
+
