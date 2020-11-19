@@ -3,15 +3,15 @@ package case_study.models;
 public abstract class ServicesAbstract {
     private String id;
     private String nameServices;
-    private double areaUsing;
-    private double payRent;
-    private int peopleCapacity;
+    private String areaUsing;
+    private String payRent;
+    private String peopleCapacity;
     private String typeRent;
 
     public ServicesAbstract() {
     }
 
-    public ServicesAbstract(String id, String nameServices, double areaUsing, double payRent, int peopleCapacity, String typeRent) {
+    public ServicesAbstract(String id, String nameServices, String areaUsing, String payRent, String peopleCapacity, String typeRent) {
         this.id = id;
         this.nameServices = nameServices;
         this.areaUsing = areaUsing;
@@ -36,27 +36,27 @@ public abstract class ServicesAbstract {
         this.nameServices = nameServices;
     }
 
-    public double getAreaUsing() {
+    public String getAreaUsing() {
         return areaUsing;
     }
 
-    public void setAreaUsing(double areaUsing) {
+    public void setAreaUsing(String areaUsing) {
         this.areaUsing = areaUsing;
     }
 
-    public double getPayRent() {
+    public String getPayRent() {
         return payRent;
     }
 
-    public void setPayRent(double payRent) {
+    public void setPayRent(String payRent) {
         this.payRent = payRent;
     }
 
-    public int getPeopleCapacity() {
+    public String getPeopleCapacity() {
         return peopleCapacity;
     }
 
-    public void setPeopleCapacity(int peopleCapacity) {
+    public void setPeopleCapacity(String peopleCapacity) {
         this.peopleCapacity = peopleCapacity;
     }
 
@@ -70,26 +70,9 @@ public abstract class ServicesAbstract {
 
     @Override
     public String toString() {
-        return "Services{" +
-                "id='" + id + '\'' +
-                ", nameServices='" + nameServices + '\'' +
-                ", areaUsing=" + areaUsing +
-                ", payRent=" + payRent +
-                ", peopleCapacity=" + peopleCapacity +
-                ", typeRent='" + typeRent + '\'' +
-                '}';
+        return id + ',' +nameServices +','+ areaUsing +','+ payRent +','+ peopleCapacity +','+ typeRent + ','
+                ;
     }
 
-    public abstract void addNewService();
-
-    public abstract void editService();
-
-    public abstract void deleteService();
-
-    public abstract void searchService();
-
-    public abstract void sortService();
-
-    public abstract void showInfo();
 }
 

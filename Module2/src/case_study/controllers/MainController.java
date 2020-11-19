@@ -1,9 +1,10 @@
 package case_study.controllers;
 
+import java.io.IOException;
 import java.util.Scanner;
 
-public class MainController {
-    public static void displayMainMenu() {
+public class MainController extends Service{
+    public static void displayMainMenu() throws IOException {
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
         while (check) {
@@ -31,18 +32,27 @@ public class MainController {
             }
             switch (num) {
                 case 1: {
+                  addNewService();
                     break;
                 }
                 case 2: {
+                    showService();
                     break;
                 }
                 case 3: {
+                    //addNewCustomer();
                     break;
                 }
                 case 4: {
+                    //showInformationOfCustomer();
                     break;
                 }
                 case 5: {
+                    //addNewBooking();
+                    break;
+                }
+                case 6: {
+                    //showInformationOfEmployee();
                     break;
                 }
                 case 0:
@@ -51,6 +61,12 @@ public class MainController {
 
         }
 
+    }
+
+
+
+    public static void main(String[] args) throws IOException {
+        displayMainMenu();
     }
 }
 
