@@ -26,6 +26,10 @@ public class Customers {
         this.serviceObject = serviceObject;
     }
 
+    public Customers(String s, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9) {
+    }
+
+
     public String getName() {
         return name;
     }
@@ -100,16 +104,6 @@ public class Customers {
 
     @Override
     public String toString() {
-        return "Customers{" +
-                "name='" + name + '\'' +
-                ", birth='" + birth + '\'' +
-                ", gender='" + gender + '\'' +
-                ", numId='" + numId + '\'' +
-                ", phone='" + phone + '\'' +
-                ", email='" + email + '\'' +
-                ", kindCustomer='" + kindCustomer + '\'' +
-                ", address='" + address + '\'' +
-                ", serviceObject='" + serviceObject + '\'' +
-                '}';
+        return name+","+birth +","+ gender +"," +numId +"," +phone +"," +email +"," + kindCustomer +"," +address +"," + serviceObject ;
     }
 }

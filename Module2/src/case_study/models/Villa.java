@@ -10,8 +10,8 @@ public String freeService;
         this.freeService = freeService;
     }
 
-    public Villa(String id, String nameServices, String areaUsing, String payRent, String peopleCapacity, String typeRent, String freeService) {
-        super(id, nameServices, areaUsing, payRent, peopleCapacity, typeRent);
+    public Villa(String id, String nameServices, String dateOfBirth, String areaUsing, String payRent, String peopleCapacity, String accomService, String typeRent, String freeService) {
+        super(id, nameServices, dateOfBirth, areaUsing, payRent, peopleCapacity, accomService, typeRent);
         this.freeService = freeService;
     }
 

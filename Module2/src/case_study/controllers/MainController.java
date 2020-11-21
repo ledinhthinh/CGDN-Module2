@@ -40,11 +40,11 @@ public class MainController extends Service{
                     break;
                 }
                 case 3: {
-                    //addNewCustomer();
+                    Customer.addNewCustomer();
                     break;
                 }
                 case 4: {
-                    //showInformationOfCustomer();
+                    Customer.showInformationOfCustomer();
                     break;
                 }
                 case 5: {
