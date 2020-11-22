@@ -3,7 +3,7 @@ package case_study.models;
 public abstract class ServicesAbstract {
     private String id;
     private String nameServices;
-    private String dateOfBirth;
+   // private String dateOfBirth;
     private String areaUsing;
     private String payRent;
     private String peopleCapacity;
@@ -15,10 +15,9 @@ public abstract class ServicesAbstract {
     public ServicesAbstract() {
     }
 
-    public ServicesAbstract(String id, String nameServices,String dateOfBirth, String areaUsing, String payRent, String peopleCapacity,String numberOfFloors, String typeRent) {
+    public ServicesAbstract(String id, String nameServices, String areaUsing, String payRent, String peopleCapacity,String numberOfFloors, String typeRent) {
         this.id = id;
         this.nameServices = nameServices;
-        this.dateOfBirth =dateOfBirth;
         this.areaUsing = areaUsing;
         this.payRent = payRent;
         this.peopleCapacity = peopleCapacity;
@@ -82,17 +81,17 @@ public abstract class ServicesAbstract {
         this.numberOfFloors = numberOfFloors;
     }
 
-    public String getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(String dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
+//    public String getDateOfBirth() {
+//        return dateOfBirth;
+//    }
+//
+//    public void setDateOfBirth(String dateOfBirth) {
+//        this.dateOfBirth = dateOfBirth;
+//    }
 
     @Override
     public String toString() {
-        return id + ',' +nameServices +','+dateOfBirth+','+ areaUsing +','+ payRent +','+ peopleCapacity +','+ numberOfFloors + ','+typeRent + ',';
+        return id + ',' +nameServices +','+ areaUsing +','+ payRent +','+ peopleCapacity +','+ numberOfFloors + ','+typeRent + ',';
     }
 
 }

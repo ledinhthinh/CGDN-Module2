@@ -126,12 +126,12 @@ public class Service extends RegexService {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setNameServices(scanner.nextLine());
         }
-        System.out.println("Enter date of birth: ");
-        room.setDateOfBirth(scanner.nextLine());
-        while (!checkDateOfBirth(room.getDateOfBirth())) {
-            System.out.println("Enter incorrect data, please re-enter !!!");
-            room.setDateOfBirth(scanner.nextLine());
-        }
+//        System.out.println("Enter date of birth: ");
+//        room.setDateOfBirth(scanner.nextLine());
+//        while (!checkDateOfBirth(room.getDateOfBirth())) {
+//            System.out.println("Enter incorrect data, please re-enter !!!");
+//            room.setDateOfBirth(scanner.nextLine());
+//        }
         System.out.println("Enter area: ");
         room.setAreaUsing(scanner.nextLine());
         while (!checkArea(room.getAreaUsing())) {
@@ -197,12 +197,12 @@ public class Service extends RegexService {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setNameServices(scanner.nextLine());
         }
-        System.out.println("Enter date of birth: ");
-        villa.setDateOfBirth(scanner.nextLine());
-        while (!checkDateOfBirth(villa.getDateOfBirth())) {
-            System.out.println("Enter incorrect data, please re-enter !!!");
-            villa.setDateOfBirth(scanner.nextLine());
-        }
+//        System.out.println("Enter date of birth: ");
+//        villa.setDateOfBirth(scanner.nextLine());
+//        while (!checkDateOfBirth(villa.getDateOfBirth())) {
+//            System.out.println("Enter incorrect data, please re-enter !!!");
+//            villa.setDateOfBirth(scanner.nextLine());
+//        }
         System.out.println("Enter area: ");
         villa.setAreaUsing(scanner.nextLine());
         while (!checkArea(villa.getAreaUsing())) {
@@ -257,7 +257,7 @@ public class Service extends RegexService {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter id House: ");
         house.setId(scanner.nextLine());
-        while (!checkIdRoom(house.getId())) {
+        while (!checkIdHouse(house.getId())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setId(scanner.nextLine());
         }
@@ -267,12 +267,12 @@ public class Service extends RegexService {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setNameServices(scanner.nextLine());
         }
-        System.out.println("Enter date of birth: ");
-        house.setDateOfBirth(scanner.nextLine());
-        while (!checkDateOfBirth(house.getDateOfBirth())) {
-            System.out.println("Enter incorrect data, please re-enter !!!");
-            house.setDateOfBirth(scanner.nextLine());
-        }
+//        System.out.println("Enter date of birth: ");
+//        house.setDateOfBirth(scanner.nextLine());
+//        while (!checkDateOfBirth(house.getDateOfBirth())) {
+//            System.out.println("Enter incorrect data, please re-enter !!!");
+//            house.setDateOfBirth(scanner.nextLine());
+//        }
         System.out.println("Enter area: ");
         house.setAreaUsing(scanner.nextLine());
         while (!checkArea(house.getAreaUsing())) {

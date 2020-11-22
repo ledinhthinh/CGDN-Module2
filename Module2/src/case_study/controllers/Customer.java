@@ -13,6 +13,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
+import static java.util.Collections.sort;
+
 public class Customer extends RegexCustomer {
     static Scanner scanner = new Scanner(System.in);
     static List<Customers> customersList = new ArrayList<>();
@@ -31,7 +33,7 @@ public class Customer extends RegexCustomer {
             System.out.println("Enter incorrect data, please re-enter !!!");
             customers.setBirth(scanner.nextLine());
         }
-        System.out.println("Enter gender: ");
+        System.out.println("Enter gender(Male or Fimale or Unknow): ");
         customers.setGender(scanner.nextLine());
         while (!regexGender(customers.getGender())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
@@ -55,12 +57,24 @@ public class Customer extends RegexCustomer {
             System.out.println("Enter incorrect data, please re-enter !!!");
             customers.setEmail(scanner.nextLine());
         }
-        System.out.println("Enter kind of customer: ");
+        System.out.println("Enter kind of customer( Diamond|Gold|Silver|Copper ): ");
         customers.setKindCustomer(scanner.nextLine());
-        System.out.println("Enter address: ");
+        while (!regexKindOfCus(customers.getKindCustomer())) {
+            System.out.println("Enter incorrect data, please re-enter !!!");
+            customers.setKindCustomer(scanner.nextLine());
+        }
+        System.out.println("Enter address(commune (ward)-district (district)-province (city)): ");
         customers.setAddress(scanner.nextLine());
-        System.out.println("service: (Villa,House,Room)");
+        while (!regexAddress(customers.getAddress())) {
+            System.out.println("Enter incorrect data, please re-enter !!!");
+            customers.setAddress(scanner.nextLine());
+        }
+        System.out.println("Enter service Object(Villa|House|Room):");
         customers.setServiceObject(scanner.nextLine());
+        while (!regexServiceObject(customers.getServiceObject())) {
+            System.out.println("Enter incorrect data, please re-enter !!!");
+            customers.setServiceObject(scanner.nextLine());
+        }
         customersList.add(customers);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("src/case_study/data/Customer.csv"), true));
@@ -74,25 +88,26 @@ public class Customer extends RegexCustomer {
         }
     }
 
-    public static void showInformationOfCustomer() throws IOException {
-        List<String[]> list = new ArrayList<>();
-//        List<String[]> list1 = FileUntil.readFile("src/case_study/data/Customer.csv");
-//        for (String[] c: list1 ){
-//            Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7],c[8],c[9]);
-//            list.add(customers);
-//        }
-//        Collections.sort(list, new CompaName());
-//        for (Customers c : list) {
-//            System.out.println("Name: "+c.getName()+ " ID: "+c.getNumId()+" Birthday: "+c.getBirth()+" Gender: "+c.getGender()+" Phone: "+c.getPhone()
-//            +"Email: "+c.getEmail()+" Address: "+c.getAddress()+" Kind customer: "+c.getKindCustomer()+"Service object: "+c.getServiceObject());
-//        }
-        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/Customer.csv")));
-        String line = null;
-        while ((line = bufferedReader.readLine()) != null && !line.equals("")){
-            String[] elementLine = line.split(",");
-            list.add(elementLine);
+    public static void showInformationOfCustomer() {
+        List<Customers> list = new ArrayList<>();
+        List<String[]> list1 = FileUntil.readFile("src/case_study/data/Customer.csv");
+        for (String[] c : list1) {
+            Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8]);
+            list.add(customers);
         }
-        bufferedReader.close();
-        System.out.println(list);
+        sort(list, new CompaName());
+        for (Customers c : list) {
+            System.out.println("Name: " + c.getName() + " ID: " + c.getNumId() + " Birthday: " + c.getBirth() + " Gender: " + c.getGender() + " Phone: " + c.getPhone()
+                    + "Email: " + c.getEmail() + " Address: " + c.getAddress() + " Kind customer: " + c.getKindCustomer() + " Service object: " + c.getServiceObject());
+//            c.showInFor();
+        }
+//        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/Customer.csv")));
+//        String line = null;
+//        while ((line = bufferedReader.readLine()) != null && !line.equals("")){
+//            String[] elementLine = line.split(",");
+//            list.add(elementLine);
+//        }
+//        bufferedReader.close();
+//        System.out.println(list);
     }
 }

@@ -48,7 +48,7 @@ public class MainController extends Service{
                     break;
                 }
                 case 5: {
-                    //addNewBooking();
+                    NewBooking.addNewBooking();
                     break;
                 }
                 case 6: {

@@ -26,8 +26,6 @@ public class Customers {
         this.serviceObject = serviceObject;
     }
 
-    public Customers(String s, String s1, String s2, String s3, String s4, String s5, String s6, String s7, String s8, String s9) {
-    }
 
 
     public String getName() {
@@ -100,6 +98,9 @@ public class Customers {
 
     public void setServiceObject(String serviceObject) {
         this.serviceObject = serviceObject;
+    }
+    public void showInFor(){
+        System.out.println(this.toString());
     }
 
     @Override
