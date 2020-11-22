@@ -1,14 +1,13 @@
 package case_study.controllers;
 
+import case_study.commons.FileUntil;
 import case_study.commons.RegexService;
 import case_study.models.House;
 import case_study.models.Room;
 import case_study.models.Villa;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Service extends RegexService {
     static List<Villa> villaList = new ArrayList<>();
@@ -80,11 +79,11 @@ public class Service extends RegexService {
             }
             switch (num) {
                 case 1: {
-                      showAllVilla();
+                    showAllVilla();
                     break;
                 }
                 case 2: {
-                     showAllHouse();
+                    showAllHouse();
                     break;
                 }
                 case 3: {
@@ -92,15 +91,15 @@ public class Service extends RegexService {
                     break;
                 }
                 case 4: {
-                    //  showAllNameVillaNotDuplicate();
+                    showAllNameVillaNotDuplicate();
                     break;
                 }
                 case 5: {
-                    //  showAllNameHouseNotDuplicate();
+                    showAllNameHouseNotDuplicate();
                     break;
                 }
                 case 6: {
-                    // showAllNameRoomNotDuplicate();
+                    showAllNameRoomNotDuplicate();
                     break;
                 }
                 case 0: {
@@ -347,5 +346,41 @@ public class Service extends RegexService {
             System.out.println(line);
         }
 
+    }
+
+    public static void showAllNameVillaNotDuplicate() {
+        Set<String> villaSet = new TreeSet<>();
+        List<String[]> listVilla = FileUntil.readFile("src/case_study/data/Villa.csv");
+        for (String[] e : listVilla) {
+            Villa villa = new Villa(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
+            villaSet.add(villa.toString());
+        }
+        for (String p : villaSet) {
+            System.out.println(p);
+        }
+    }
+
+    public static void showAllNameHouseNotDuplicate() {
+        Set<String> houseList = new TreeSet<>();
+        List<String[]> listHouse = FileUntil.readFile("src/case_study/data/House.csv");
+        for (String[] e : listHouse) {
+            House house = new House(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
+            houseList.add(house.toString());
+        }
+        for (String p : houseList) {
+            System.out.println(p);
+        }
+    }
+
+    public static void showAllNameRoomNotDuplicate() {
+        Set<String> roomList = new TreeSet<>();
+        List<String[]> listRoom = FileUntil.readFile("src/case_study/data/Room.csv");
+        for (String[] e : listRoom) {
+            Room room = new Room(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
+            roomList.add(room.toString());
+        }
+        for (String p : roomList) {
+            System.out.println(p);
+        }
     }
 }
