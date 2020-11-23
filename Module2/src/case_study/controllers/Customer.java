@@ -69,12 +69,12 @@ public class Customer extends RegexCustomer {
             System.out.println("Enter incorrect data, please re-enter !!!");
             customers.setAddress(scanner.nextLine());
         }
-        System.out.println("Enter service Object(Villa|House|Room):");
-        customers.setServiceObject(scanner.nextLine());
-        while (!regexServiceObject(customers.getServiceObject())) {
-            System.out.println("Enter incorrect data, please re-enter !!!");
-            customers.setServiceObject(scanner.nextLine());
-        }
+//        System.out.println("Enter service Object(Villa|House|Room):");
+//        customers.setServiceObject(scanner.nextLine());
+//        while (!regexServiceObject(customers.getServiceObject())) {
+//            System.out.println("Enter incorrect data, please re-enter !!!");
+//            customers.setServiceObject(scanner.nextLine());
+//        }
         customersList.add(customers);
         try {
             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("src/case_study/data/Customer.csv"), true));
@@ -92,13 +92,13 @@ public class Customer extends RegexCustomer {
         List<Customers> list = new ArrayList<>();
         List<String[]> list1 = FileUntil.readFile("src/case_study/data/Customer.csv");
         for (String[] c : list1) {
-            Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8]);
+            Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7]);
             list.add(customers);
         }
         sort(list, new CompaName());
         for (Customers c : list) {
             System.out.println("Name: " + c.getName() + " ID: " + c.getNumId() + " Birthday: " + c.getBirth() + " Gender: " + c.getGender() + " Phone: " + c.getPhone()
-                    + "Email: " + c.getEmail() + " Address: " + c.getAddress() + " Kind customer: " + c.getKindCustomer() + " Service object: " + c.getServiceObject());
+                    + "Email: " + c.getEmail() + " Address: " + c.getAddress() + " Kind customer: " + c.getKindCustomer());
 //            c.showInFor();
         }
 //        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/Customer.csv")));

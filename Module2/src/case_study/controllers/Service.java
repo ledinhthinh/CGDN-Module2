@@ -18,6 +18,7 @@ public class Service extends RegexService {
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
         while (check) {
+            System.out.println("--------ADD NEW SERVICE--------");
             System.out.println("1.Add New Villa.");
             System.out.println("2.Add New House.");
             System.out.println("3.Add New Room.");
@@ -59,6 +60,7 @@ public class Service extends RegexService {
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
         while (check) {
+            System.out.println("--------SHOW SERVICE--------");
             System.out.println("1.Show all Villa.");
             System.out.println("2.Show all House.");
             System.out.println("3.Show all Room.");
@@ -66,6 +68,8 @@ public class Service extends RegexService {
             System.out.println("5.Show all Name House Not Duplicate.");
             System.out.println("6.Show All Name Name Not Duplicate.");
             System.out.println("0.Back to menu.");
+            System.out.println("Please enter your selection.");
+
             int num = scanner.nextInt();
             boolean isNumber = true;
             if (num < 0 || num > 7) {
@@ -178,6 +182,7 @@ public class Service extends RegexService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        roomList.clear();
     }
 
 
@@ -249,6 +254,7 @@ public class Service extends RegexService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        villaList.clear();
     }
 
     public static void addNewHouse() {
@@ -319,13 +325,17 @@ public class Service extends RegexService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        houseList.clear();
     }
 
     public static void showAllVilla() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/Villa.csv")));
         String line = null;
+        System.out.println("--------LIST VILLA--------");
+        int temp =1;
         while ((line = bufferedReader.readLine()) != null) {
-            System.out.println(line);
+            System.out.println(temp+"."+line);
+            temp++;
         }
 
     }
@@ -333,8 +343,11 @@ public class Service extends RegexService {
     public static void showAllHouse() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/House.csv")));
         String line = null;
+        System.out.println("--------LIST HOUSE--------");
+        int temp =1;
         while ((line = bufferedReader.readLine()) != null) {
             System.out.println(line);
+            temp++;
         }
 
     }
@@ -342,8 +355,11 @@ public class Service extends RegexService {
     public static void showAllRoom() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/Room.csv")));
         String line = null;
+        System.out.println("--------LIST ROOM--------");
+        int temp =1;
         while ((line = bufferedReader.readLine()) != null) {
             System.out.println(line);
+            temp++;
         }
 
     }
@@ -353,10 +369,12 @@ public class Service extends RegexService {
         List<String[]> listVilla = FileUntil.readFile("src/case_study/data/Villa.csv");
         for (String[] e : listVilla) {
             Villa villa = new Villa(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
-            villaSet.add(villa.toString());
+            villaSet.add(villa.getNameServices());
         }
+        int temp =1;
         for (String p : villaSet) {
-            System.out.println(p);
+            System.out.println(temp+"."+p);
+            temp++;
         }
     }
 
@@ -365,10 +383,12 @@ public class Service extends RegexService {
         List<String[]> listHouse = FileUntil.readFile("src/case_study/data/House.csv");
         for (String[] e : listHouse) {
             House house = new House(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
-            houseList.add(house.toString());
+            houseList.add(house.getNameServices());
         }
+        int temp = 1;
         for (String p : houseList) {
             System.out.println(p);
+            temp++;
         }
     }
 
@@ -377,10 +397,13 @@ public class Service extends RegexService {
         List<String[]> listRoom = FileUntil.readFile("src/case_study/data/Room.csv");
         for (String[] e : listRoom) {
             Room room = new Room(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
-            roomList.add(room.toString());
+            roomList.add(room.getNameServices());
         }
+
+        int temp = 1;
         for (String p : roomList) {
-            System.out.println(p);
+            System.out.println(temp+"."+p);
+            temp++;
         }
     }
 }

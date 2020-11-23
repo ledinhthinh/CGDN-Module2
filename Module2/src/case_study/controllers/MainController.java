@@ -8,12 +8,13 @@ public class MainController extends Service{
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
         while (check) {
+            System.out.println("********MENU********");
             System.out.println("1.Add new services.");
             System.out.println("2.Show services.");
             System.out.println("3.Add new customer.");
             System.out.println("4.Show information of customer.");
             System.out.println("5.Add new booking.");
-            System.out.println("6.Show inofmation of employee.");
+            System.out.println("6.Show information of employee.");
             System.out.println("0.Exit.");
             System.out.println("Please enter your selection.");
             int num = scanner.nextInt();
@@ -52,7 +53,7 @@ public class MainController extends Service{
                     break;
                 }
                 case 6: {
-                    //showInformationOfEmployee();
+                    ShowEmployee.showInformationOfEmployee();
                     break;
                 }
                 case 0:

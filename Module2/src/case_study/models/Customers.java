@@ -9,12 +9,12 @@ public class Customers {
     private String email;
     private String kindCustomer;
     private String address;
-    private String serviceObject;
+//    private String serviceObject;
 
     public Customers() {
     }
 
-    public Customers(String name, String birth, String gender, String numId, String phone, String email, String kindCustomer, String address, String serviceObject) {
+    public Customers(String name, String birth, String gender, String numId, String phone, String email, String kindCustomer, String address) {
         this.name = name;
         this.birth = birth;
         this.gender = gender;
@@ -23,7 +23,7 @@ public class Customers {
         this.email = email;
         this.kindCustomer = kindCustomer;
         this.address = address;
-        this.serviceObject = serviceObject;
+//        this.serviceObject = serviceObject;
     }
 
 
@@ -92,19 +92,19 @@ public class Customers {
         this.address = address;
     }
 
-    public String getServiceObject() {
-        return serviceObject;
-    }
-
-    public void setServiceObject(String serviceObject) {
-        this.serviceObject = serviceObject;
-    }
+//    public String getServiceObject() {
+//        return serviceObject;
+//    }
+//
+//    public void setServiceObject(String serviceObject) {
+//        this.serviceObject = serviceObject;
+//    }
     public void showInFor(){
         System.out.println(this.toString());
     }
 
     @Override
     public String toString() {
-        return name+","+birth +","+ gender +"," +numId +"," +phone +"," +email +"," + kindCustomer +"," +address +"," + serviceObject ;
+        return name+","+birth +","+ gender +"," +numId +"," +phone +"," +email +"," + kindCustomer +"," +address ;
     }
 }

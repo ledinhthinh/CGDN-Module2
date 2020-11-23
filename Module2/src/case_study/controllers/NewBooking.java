@@ -15,10 +15,10 @@ public class NewBooking {
         boolean check = true;
         Customer.showInformationOfCustomer();
         List<Customers> list = new ArrayList<>();
-        List<ServicesAbstract> servicesAbstractList = new ArrayList<>();
+//        List<ServicesAbstract> servicesAbstractList = new ArrayList<>();
         List<String[]> list1 = FileUntil.readFile("src/case_study/data/Customer.csv");
         for (String[] c : list1) {
-            Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7], c[8]);
+            Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7]);
             list.add(customers);
         }
         while (check) {
@@ -27,9 +27,11 @@ public class NewBooking {
             String idCus = scanner.nextLine();
             for (Customers c : list) {
                 if (idCus.equals(c.getNumId())) {
+                    System.out.println("********BOOKING********");
                     System.out.println("1.Booking Villa.");
                     System.out.println("2.Booking House.");
                     System.out.println("3.Booking Room.");
+                    System.out.println("Please enter your selection.");
                     int num = scanner.nextInt();
                     boolean isNumber = true;
                     if (num < 1 || num > 3) {
@@ -55,11 +57,11 @@ public class NewBooking {
                             String idSerVilla = scanner.nextLine();
                             for (Villa p : villaList) {
                                 if (idSerVilla.equals(p.getId())) {
-                                    bufferedWriter.write("Name: " + c.getName() + ','+" ID: " + c.getNumId() +','+ " Birthday: " + c.getBirth() +','+ " Gender: " + c.getGender() +','+ " Phone: " + c.getPhone()
-                                            + ','+"Email: " + c.getEmail() +','+ " Address: " + c.getAddress() + ','+" Kind customer: " + c.getKindCustomer() +','+ " Service object: " + c.getServiceObject() +','+ p.toString()+"\n");
-
+                                    bufferedWriter.write("[CUSTOMER]"+"Name: " + c.getName() + ',' + " ID: " + c.getNumId() + ',' + " Birthday: " + c.getBirth() + ',' + " Gender: " + c.getGender() + ',' + " Phone: " + c.getPhone()
+                                            + ',' + "Email: " + c.getEmail() + ',' + " Address: " + c.getAddress() + ',' + " Kind customer: " + c.getKindCustomer()  + "[BOOKING]" + p.toString() + "\n");
                                 }
                             }
+                            bufferedWriter.close();
                             System.out.println("Successfully booked!!!");
                             break;
                         }
@@ -76,11 +78,13 @@ public class NewBooking {
                             String idSerHouse = scanner.nextLine();
                             for (House p : houseList) {
                                 if (idSerHouse.equals(p.getId())) {
-                                    bufferedWriter.write("Name: " + c.getName() + ','+" ID: " + c.getNumId() +','+ " Birthday: " + c.getBirth() +','+ " Gender: " + c.getGender() +','+ " Phone: " + c.getPhone()
-                                            + ','+"Email: " + c.getEmail() +','+ " Address: " + c.getAddress() + ','+" Kind customer: " + c.getKindCustomer() +','+ " Service object: " + c.getServiceObject() +','+ p.toString()+"\n");
+                                    bufferedWriter.write("[CUSTOMER]"+"Name: " + c.getName() + ',' + " ID: " + c.getNumId() + ',' + " Birthday: " + c.getBirth() + ',' + " Gender: " + c.getGender() + ',' + " Phone: " + c.getPhone()
+                                            + ',' + "Email: " + c.getEmail() + ',' + " Address: " + c.getAddress() + ',' + " Kind customer: " + c.getKindCustomer() + "[BOOKING]" + p.toString() + "\n");
 
                                 }
+
                             }
+                            bufferedWriter.close();
                             System.out.println("Successfully booked!!!");
                             break;
                         }
@@ -98,20 +102,25 @@ public class NewBooking {
                             String idSerRoom = scanner.nextLine();
                             for (Room p : roomList) {
                                 if (idSerRoom.equals(p.getId())) {
-                                    bufferedWriter.write("Name: " + c.getName() + ','+" ID: " + c.getNumId() +','+ " Birthday: " + c.getBirth() +','+ " Gender: " + c.getGender() +','+ " Phone: " + c.getPhone()
-                                            + ','+"Email: " + c.getEmail() +','+ " Address: " + c.getAddress() + ','+" Kind customer: " + c.getKindCustomer() +','+ " Service object: " + c.getServiceObject() +','+ p.toString()+"\n");
+                                    bufferedWriter.write("[CUSTOMER]"+"Name: " + c.getName() + ',' + " ID: " + c.getNumId() + ',' + " Birthday: " + c.getBirth() + ',' + " Gender: " + c.getGender() + ',' + " Phone: " + c.getPhone()
+                                            + ',' + "Email: " + c.getEmail() + ',' + " Address: " + c.getAddress() + ',' + " Kind customer: " + c.getKindCustomer()  + "[BOOKING]" + p.toString() + "\n");
 
                                 }
+
                             }
+                            bufferedWriter.close();
                             System.out.println("Successfully booked!!!");
                             break;
                         }
 
                     }
+                } else {
+                    System.out.println("No id customer in list customer!!!");
+                    break;
                 }
             }
             check = false;
         }
-        bufferedWriter.close();
+
     }
 }
