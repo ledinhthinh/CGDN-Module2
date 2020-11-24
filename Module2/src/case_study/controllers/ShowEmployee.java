@@ -14,7 +14,7 @@ public class ShowEmployee {
     public static void showInformationOfEmployee(){
         Map<String, Employee> employeeMap = new TreeMap<>();
         List<String[]> listEmployee = FileUntil.readFile("src/case_study/data/Employee.csv");
-        System.out.println("List of employee.");
+        System.out.println("--------EMPLOYEE--------");
             for (String[] c: listEmployee){
                 Id++;
                 Employee employee = new Employee(c[0],c[1],c[2]);

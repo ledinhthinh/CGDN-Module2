@@ -15,11 +15,12 @@ public class MainController extends Service{
             System.out.println("4.Show information of customer.");
             System.out.println("5.Add new booking.");
             System.out.println("6.Show information of employee.");
+            System.out.println("7.Search employee.");
             System.out.println("0.Exit.");
             System.out.println("Please enter your selection.");
             int num = scanner.nextInt();
             boolean isNumber = true;
-            if (num < 0 || num > 6) {
+            if (num < 0 || num > 7) {
                 System.out.println("Not a Number");
                 isNumber = false;
 //                break;
@@ -54,6 +55,10 @@ public class MainController extends Service{
                 }
                 case 6: {
                     ShowEmployee.showInformationOfEmployee();
+                    break;
+                }
+                case 7:{
+                    FilingCabinets.SearchEmployee();
                     break;
                 }
                 case 0:
