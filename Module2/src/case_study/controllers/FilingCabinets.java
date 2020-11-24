@@ -17,11 +17,16 @@ public class FilingCabinets {
         }
         String search = null;
         Scanner scanner = new Scanner(System.in);
+        System.out.println("LIST NAME EMPLOYEE.");
+        for (Employee p :employeeStack){
+            System.out.println(p.getNameEmployee());
+        }
         System.out.println("Enter the employee you want to search: ");
         search = scanner.nextLine();
         for (Employee p : employeeStack) {
           if (search.equals(p.getNameEmployee())){
-              System.out.println(employeeStack.push(p));
+              System.out.println("Name: "+p.getNameEmployee()+" Age: "+p.getAgeEmployee()+" Address: "+p.getAddressEmployee());
+//              System.out.println(employeeStack.push(p));
               break;
             }
         }
