@@ -1,7 +1,6 @@
 package case_study.controllers;
 
-import _16_in_out_binary_file.thuc_hanh.Main;
-import case_study.commons.FileUntil;
+import case_study.commons.FileUtils;
 import case_study.models.Employee;
 
 import java.util.List;
@@ -13,7 +12,7 @@ public class ShowEmployee {
     private static Integer Id =0;
     public static void showInformationOfEmployee(){
         Map<String, Employee> employeeMap = new TreeMap<>();
-        List<String[]> listEmployee = FileUntil.readFile("src/case_study/data/Employee.csv");
+        List<String[]> listEmployee = FileUtils.readFile("src/case_study/data/Employee.csv");
         System.out.println("--------EMPLOYEE--------");
             for (String[] c: listEmployee){
                 Id++;

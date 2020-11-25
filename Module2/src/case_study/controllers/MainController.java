@@ -1,9 +1,11 @@
 package case_study.controllers;
 
+import case_study.commons.RegexService;
+
 import java.io.IOException;
 import java.util.Scanner;
 
-public class MainController extends Service{
+public class MainController {
     public static void displayMainMenu() throws IOException {
         Scanner scanner = new Scanner(System.in);
         boolean check = true;
@@ -18,7 +20,13 @@ public class MainController extends Service{
             System.out.println("7.Search employee.");
             System.out.println("0.Exit.");
             System.out.println("Please enter your selection.");
-            int num = scanner.nextInt();
+//            int num = Integer.parseInt(scanner.nextLine());
+            String numStr = scanner.nextLine();
+            while (!RegexService.checkNum(numStr)){
+                System.out.println("Enter incorrect data, please re-enter !!!");
+                numStr=scanner.nextLine();
+            }
+            int num = Integer.parseInt(numStr);
             boolean isNumber = true;
             if (num < 0 || num > 7) {
                 System.out.println("Not a Number");
@@ -34,11 +42,11 @@ public class MainController extends Service{
             }
             switch (num) {
                 case 1: {
-                  addNewService();
+                  Service.addNewService();
                     break;
                 }
                 case 2: {
-                    showService();
+                    Service.showService();
                     break;
                 }
                 case 3: {

@@ -1,15 +1,12 @@
 package case_study.controllers;
 
-import _11_tree_map.bai_tap.CompaPrice;
-import _11_tree_map.bai_tap.Product;
 import case_study.commons.CompaName;
-import case_study.commons.FileUntil;
+import case_study.commons.FileUtils;
 import case_study.commons.RegexCustomer;
 import case_study.models.Customers;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -90,15 +87,16 @@ public class Customer extends RegexCustomer {
 
     public static void showInformationOfCustomer() {
         List<Customers> list = new ArrayList<>();
-        List<String[]> list1 = FileUntil.readFile("src/case_study/data/Customer.csv");
+        List<String[]> list1 = FileUtils.readFile("src/case_study/data/Customer.csv");
         for (String[] c : list1) {
             Customers customers = new Customers(c[0], c[1], c[2], c[3], c[4], c[5], c[6], c[7]);
             list.add(customers);
         }
         sort(list, new CompaName());
+        System.out.println("--------LIST CUSTOMER--------");
         for (Customers c : list) {
             System.out.println("Name: " + c.getName() + " ID: " + c.getNumId() + " Birthday: " + c.getBirth() + " Gender: " + c.getGender() + " Phone: " + c.getPhone()
-                    + "Email: " + c.getEmail() + " Address: " + c.getAddress() + " Kind customer: " + c.getKindCustomer());
+                    + " Email: " + c.getEmail() + " Address: " + c.getAddress() + " Kind customer: " + c.getKindCustomer());
 //            c.showInFor();
         }
 //        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File("src/case_study/data/Customer.csv")));

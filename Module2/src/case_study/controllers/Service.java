@@ -1,6 +1,6 @@
 package case_study.controllers;
 
-import case_study.commons.FileUntil;
+import case_study.commons.FileUtils;
 import case_study.commons.RegexService;
 import case_study.models.House;
 import case_study.models.Room;
@@ -9,7 +9,7 @@ import case_study.models.Villa;
 import java.io.*;
 import java.util.*;
 
-public class Service extends RegexService {
+public class Service {
     static List<Villa> villaList = new ArrayList<>();
     static List<House> houseList = new ArrayList<>();
     static List<Room> roomList = new ArrayList<Room>();
@@ -69,8 +69,12 @@ public class Service extends RegexService {
             System.out.println("6.Show All Name Name Not Duplicate.");
             System.out.println("0.Back to menu.");
             System.out.println("Please enter your selection.");
-
-            int num = scanner.nextInt();
+            String numStr = scanner.nextLine();
+            while (!RegexService.checkNum(numStr)){
+                System.out.println("Enter incorrect data, please re-enter !!!");
+                numStr=scanner.nextLine();
+            }
+            int num = Integer.parseInt(numStr);
             boolean isNumber = true;
             if (num < 0 || num > 7) {
                 System.out.println("Not a Number");
@@ -117,15 +121,15 @@ public class Service extends RegexService {
     public static void addNewRoom() {
         Room room = new Room();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter id room: ");
+        System.out.println("Enter id room(SVRO-XXXX): ");
         room.setId(scanner.nextLine());
-        while (!checkIdRoom(room.getId())) {
+        while (!RegexService.checkIdRoom(room.getId())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setId(scanner.nextLine());
         }
         System.out.println("Enter name: ");
         room.setNameServices(scanner.nextLine());
-        while (!checkNameSevice(room.getNameServices())) {
+        while (!RegexService.checkNameSevice(room.getNameServices())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setNameServices(scanner.nextLine());
         }
@@ -137,37 +141,37 @@ public class Service extends RegexService {
 //        }
         System.out.println("Enter area: ");
         room.setAreaUsing(scanner.nextLine());
-        while (!checkArea(room.getAreaUsing())) {
+        while (!RegexService.checkArea(room.getAreaUsing())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setAreaUsing(scanner.nextLine());
         }
         System.out.println("Enter pay rent: ");
         room.setPayRent(scanner.nextLine());
-        while (!checkPayRent(room.getPayRent())) {
+        while (!RegexService.checkPayRent(room.getPayRent())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setPayRent(scanner.nextLine());
         }
         System.out.println("Enter max people (01-20): ");
         room.setPeopleCapacity(scanner.nextLine());
-        while (!checkMaxPeople(room.getPeopleCapacity())) {
+        while (!RegexService.checkMaxPeople(room.getPeopleCapacity())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setPeopleCapacity(scanner.nextLine());
         }
         System.out.println("Enter free service ( massage, karaoke, food, drink, car)");
         room.setFreeService(scanner.nextLine());
-        while (!checkFreeService(room.getFreeService())) {
+        while (!RegexService.checkFreeService(room.getFreeService())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setFreeService(scanner.nextLine());
         }
         System.out.println("Enter type Service:");
         room.setTypeRent(scanner.nextLine());
-        while (!checkNameSevice(room.getTypeRent())) {
+        while (!RegexService.checkNameSevice(room.getTypeRent())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setTypeRent(scanner.nextLine());
         }
         System.out.println("Enter number of floors");
         room.setNumberOfFloors(scanner.nextLine());
-        while (!checkNumberOfFloors(room.getNumberOfFloors())) {
+        while (!RegexService.checkNumberOfFloors(room.getNumberOfFloors())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             room.setNumberOfFloors(scanner.nextLine());
         }
@@ -189,15 +193,15 @@ public class Service extends RegexService {
     public static void addNewVilla() {
         Villa villa = new Villa();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter id villa: ");
+        System.out.println("Enter id villa(SVVL-XXXX): ");
         villa.setId(scanner.nextLine());
-        while (!checkIdVilla(villa.getId())) {
+        while (!RegexService.checkIdVilla(villa.getId())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setId(scanner.nextLine());
         }
         System.out.println("Enter name: ");
         villa.setNameServices(scanner.nextLine());
-        while (!checkNameSevice(villa.getNameServices())) {
+        while (!RegexService.checkNameSevice(villa.getNameServices())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setNameServices(scanner.nextLine());
         }
@@ -209,37 +213,37 @@ public class Service extends RegexService {
 //        }
         System.out.println("Enter area: ");
         villa.setAreaUsing(scanner.nextLine());
-        while (!checkArea(villa.getAreaUsing())) {
+        while (!RegexService.checkArea(villa.getAreaUsing())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setAreaUsing(scanner.nextLine());
         }
         System.out.println("Enter pay rent: ");
         villa.setPayRent(scanner.nextLine());
-        while (!checkPayRent(villa.getPayRent())) {
+        while (!RegexService.checkPayRent(villa.getPayRent())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setPayRent(scanner.nextLine());
         }
         System.out.println("Enter max people (01-20): ");
         villa.setPeopleCapacity(scanner.nextLine());
-        while (!checkMaxPeople(villa.getPeopleCapacity())) {
+        while (!RegexService.checkMaxPeople(villa.getPeopleCapacity())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setPeopleCapacity(scanner.nextLine());
         }
         System.out.println("Enter free service ( massage, karaoke, food, drink, car)");
         villa.setFreeService(scanner.nextLine());
-        while (!checkFreeService(villa.getFreeService())) {
+        while (!RegexService.checkFreeService(villa.getFreeService())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setFreeService(scanner.nextLine());
         }
         System.out.println("Enter type Service:");
         villa.setTypeRent(scanner.nextLine());
-        while (!checkNameSevice(villa.getTypeRent())) {
+        while (!RegexService.checkNameSevice(villa.getTypeRent())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setTypeRent(scanner.nextLine());
         }
         System.out.println("Enter number of floors");
         villa.setNumberOfFloors(scanner.nextLine());
-        while (!checkNumberOfFloors(villa.getNumberOfFloors())) {
+        while (!RegexService.checkNumberOfFloors(villa.getNumberOfFloors())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             villa.setNumberOfFloors(scanner.nextLine());
         }
@@ -260,15 +264,15 @@ public class Service extends RegexService {
     public static void addNewHouse() {
         House house = new House();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter id House: ");
+        System.out.println("Enter id House(SVHO-XXXX): ");
         house.setId(scanner.nextLine());
-        while (!checkIdHouse(house.getId())) {
+        while (!RegexService.checkIdHouse(house.getId())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setId(scanner.nextLine());
         }
         System.out.println("Enter name: ");
         house.setNameServices(scanner.nextLine());
-        while (!checkNameSevice(house.getNameServices())) {
+        while (!RegexService.checkNameSevice(house.getNameServices())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setNameServices(scanner.nextLine());
         }
@@ -280,37 +284,37 @@ public class Service extends RegexService {
 //        }
         System.out.println("Enter area: ");
         house.setAreaUsing(scanner.nextLine());
-        while (!checkArea(house.getAreaUsing())) {
+        while (!RegexService.checkArea(house.getAreaUsing())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setAreaUsing(scanner.nextLine());
         }
         System.out.println("Enter pay rent: ");
         house.setPayRent(scanner.nextLine());
-        while (!checkPayRent(house.getPayRent())) {
+        while (!RegexService.checkPayRent(house.getPayRent())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setPayRent(scanner.nextLine());
         }
         System.out.println("Enter max people (01-20): ");
         house.setPeopleCapacity(scanner.nextLine());
-        while (!checkMaxPeople(house.getPeopleCapacity())) {
+        while (!RegexService.checkMaxPeople(house.getPeopleCapacity())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setPeopleCapacity(scanner.nextLine());
         }
         System.out.println("Enter free service ( massage, karaoke, food, drink, car)");
         house.setFreeService(scanner.nextLine());
-        while (!checkFreeService(house.getFreeService())) {
+        while (!RegexService.checkFreeService(house.getFreeService())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setFreeService(scanner.nextLine());
         }
         System.out.println("Enter type Service:");
         house.setTypeRent(scanner.nextLine());
-        while (!checkNameSevice(house.getTypeRent())) {
+        while (!RegexService.checkNameSevice(house.getTypeRent())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setTypeRent(scanner.nextLine());
         }
         System.out.println("Enter number of floors");
         house.setNumberOfFloors(scanner.nextLine());
-        while (!checkNumberOfFloors(house.getNumberOfFloors())) {
+        while (!RegexService.checkNumberOfFloors(house.getNumberOfFloors())) {
             System.out.println("Enter incorrect data, please re-enter !!!");
             house.setNumberOfFloors(scanner.nextLine());
         }
@@ -346,7 +350,7 @@ public class Service extends RegexService {
         System.out.println("--------LIST HOUSE--------");
         int temp =1;
         while ((line = bufferedReader.readLine()) != null) {
-            System.out.println(line);
+            System.out.println(temp+"."+line);
             temp++;
         }
 
@@ -358,7 +362,7 @@ public class Service extends RegexService {
         System.out.println("--------LIST ROOM--------");
         int temp =1;
         while ((line = bufferedReader.readLine()) != null) {
-            System.out.println(line);
+            System.out.println(temp+"."+line);
             temp++;
         }
 
@@ -366,7 +370,7 @@ public class Service extends RegexService {
 
     public static void showAllNameVillaNotDuplicate() {
         Set<String> villaSet = new TreeSet<>();
-        List<String[]> listVilla = FileUntil.readFile("src/case_study/data/Villa.csv");
+        List<String[]> listVilla = FileUtils.readFile("src/case_study/data/Villa.csv");
         for (String[] e : listVilla) {
             Villa villa = new Villa(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
             villaSet.add(villa.getNameServices());
@@ -380,21 +384,21 @@ public class Service extends RegexService {
 
     public static void showAllNameHouseNotDuplicate() {
         Set<String> houseList = new TreeSet<>();
-        List<String[]> listHouse = FileUntil.readFile("src/case_study/data/House.csv");
+        List<String[]> listHouse = FileUtils.readFile("src/case_study/data/House.csv");
         for (String[] e : listHouse) {
             House house = new House(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
             houseList.add(house.getNameServices());
         }
         int temp = 1;
         for (String p : houseList) {
-            System.out.println(p);
+            System.out.println(temp+"."+p);
             temp++;
         }
     }
 
     public static void showAllNameRoomNotDuplicate() {
         Set<String> roomList = new TreeSet<>();
-        List<String[]> listRoom = FileUntil.readFile("src/case_study/data/Room.csv");
+        List<String[]> listRoom = FileUtils.readFile("src/case_study/data/Room.csv");
         for (String[] e : listRoom) {
             Room room = new Room(e[0], e[1], e[2], e[3], e[4], e[5], e[6], e[7]);
             roomList.add(room.getNameServices());
@@ -404,6 +408,6 @@ public class Service extends RegexService {
         for (String p : roomList) {
             System.out.println(temp+"."+p);
             temp++;
-        }
+        }   
     }
 }

@@ -15,7 +15,8 @@ public abstract class ServicesAbstract {
     public ServicesAbstract() {
     }
 
-    public ServicesAbstract(String id, String nameServices, String areaUsing, String payRent, String peopleCapacity,String numberOfFloors, String typeRent) {
+    public ServicesAbstract(String id, String nameServices, String areaUsing, String payRent, String peopleCapacity,
+                            String numberOfFloors, String typeRent) {
         this.id = id;
         this.nameServices = nameServices;
         this.areaUsing = areaUsing;
@@ -91,7 +92,8 @@ public abstract class ServicesAbstract {
 
     @Override
     public String toString() {
-        return id + ',' +nameServices +','+ areaUsing +','+ payRent +','+ peopleCapacity +','+ numberOfFloors + ','+typeRent + ',';
+        return id + ',' +nameServices +','+ areaUsing +','+ payRent +','
+                + peopleCapacity +','+ numberOfFloors + ','+typeRent + ',';
     }
 
 }

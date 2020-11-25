@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FileUntil {
+public class FileUtils {
     public static List<String[]> readFile(String filePath){
         List<String[]> list = new ArrayList<>();
         try {
