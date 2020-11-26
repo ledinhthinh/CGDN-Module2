@@ -98,5 +98,4 @@ public class ProductManager extends Product {
             System.out.println("No product in list product!!");
         }
     }
-
 }
